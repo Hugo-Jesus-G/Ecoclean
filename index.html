@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoClean - Bote de Basura Inteligente</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400&family=Roboto:wght@300&display=swap"
+        rel="stylesheet">
+
+  <style>
+    /* Reset y estilos generales */
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+        background-color: #F5F5F5;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    /* Títulos y subtítulos con colores distintos */
+    h2 {
+        font-family: 'Montserrat', sans-serif;
+        color: #0D47A1; /* Azul para títulos principales */
+        margin-top: 1.5em;
+    }
+
+    h3 {
+        font-family: 'Montserrat', sans-serif;
+        color: #388E3C; /* Verde para subtítulos */
+        margin-top: 1.2em;
+    }
+
+    p,
+    ul,
+    ol {
+        margin: 10px 0;
+    }
+
+    ul,
+    ol {
+        padding-left: 20px;
+    }
+
+    /* Header */
+    .header-ecoclean {
+        background: #2bad86;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo-ecoclean {
+        width: 140px;
+        height: auto;
+    }
+
+    .header-text h1 {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        font-size: 40px;
+    }
+
+    .header-text p {
+        margin: 5px 0;
+        font-size: 18px;
+    }
+
+    /* Secciones */
+    section {
+        padding: 40px 20px;
+        background: white;
+        margin: 20px auto;
+        border-radius: 15px;
+        max-width: 1000px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .box {
+        background: #e8f5e9;
+        border-left: 5px solid #4CAF50;
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 5px;
+    }
+
+    /* Tablas */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 15px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    table th,
+    table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    table th {
+        background-color: #4CAF50;
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f5f5f5;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background: #0D47A1;
+        color: white;
+        margin-top: 40px;
+    }
+
+    /* Card de EcoClean */
+    .card-ecoclean {
+        background: #ffffff;
+        border: 2px solid #4CAF50;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 450px;
+        margin: 20px auto;
+        text-align: left;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .card-ecoclean:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-ecoclean h4 {
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 0;
+        color: #0D47A1;
+        font-size: 20px;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+    .card-ecoclean ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .card-ecoclean li {
+        padding: 5px 0;
+        font-size: 16px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .header-text h1 {
+            font-size: 32px;
+        }
+
+        .header-text p {
+            font-size: 16px;
+        }
+
+        section {
+            padding: 20px 15px;
+        }
+
+        table th,
+        table td {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .header-text h1 {
+            font-size: 28px;
+        }
+
+        .header-text p {
+            font-size: 14px;
+        }
+
+        .card-ecoclean {
+            width: 90%;
+        }
+    }
+
+    .img-ecoclean {
+    display: block;
+    margin: 20px auto;
+     height: auto;      /* Mantiene proporción */
+    max-height: 400px; /* Limita altura máxima */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.img-ecoclean:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .img-ecoclean {
+        width: 95%;
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .img-ecoclean {
+        width: 100%;
+        max-height: 250px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <header class="header-ecoclean">
+        <img src="images/logoEco.png" alt="Logo EcoClean" class="logo-ecoclean">
+        <div class="header-text">
+            <h1>EcoClean</h1>
+            <p>La limpieza se organiza con inteligencia</p>
+            <p><strong>Fecha de presentación: Noviembre 2025</strong></p>
+        </div>
+    </header>
+
+    <section>
+        <h2>1. Introducción</h2>
+        <p>
+            El proyecto EcoClean surge como una solución innovadora para optimizar la gestión de
+            residuos en entornos universitarios y espacios académicos. Combinando tecnología
+            inteligente, sostenibilidad ambiental y diseño funcional, EcoClean representa un avance
+            significativo en la automatización de procesos de limpieza y reciclaje en campus
+            universitarios. Este reporte presenta una propuesta integral que incluye identidad visual,
+            especificaciones técnicas, componentes del prototipo, estrategia de marketing y plan de
+            ejecución.
+        </p>
+
+        <h2>2. Identidad Visual y Branding</h2>
+        <h3>2.1 Nombre del Producto</h3>
+        <div class="box">
+            <strong>EcoClean</strong> — Nombre que combina "Eco" (ecología/sostenibilidad) con "Clean" (limpieza),
+            transmitiendo de inmediato la propuesta de valor del producto.
+        </div>
+
+        <h3>2.2 Eslogan</h3>
+        <p><em><strong>"La limpieza se organiza con inteligencia"</strong></em></p>
+        <ul>
+            <li><strong>Automatización y eficiencia:</strong> el sistema gestiona la apertura, monitoreo y alertas sin intervención humana.</li>
+            <li><strong>Inteligencia tecnológica integrada:</strong> sensores, servomotores y conectividad IoT optimizan el proceso de disposición de residuos.</li>
+            <li><strong>Compromiso con la organización y sostenibilidad:</strong> fomenta prácticas responsables y reduce el impacto ambiental.</li>
+            <li><strong>Acceso fácil y amigable:</strong> pensado para usuarios de todas las edades, con interacción sin contacto.</li>
+        </ul>
+
+        <h3>2.3 Identidad Cromática</h3>
+        <ul>
+            <li><strong>Color Primario: Verde Brillante </strong> – Representa la naturaleza, la sostenibilidad y el enfoque ecológico de EcoClean.</li>
+            <li><strong>Color Secundario: Azul Cobalto </strong> – Simboliza la tecnología, la innovación y la confiabilidad del sistema inteligente.</li>
+            <li><strong>Colores de Contraste: Blanco y Gris Claro </strong> – Refuerzan limpieza, modernidad y claridad visual en la identidad del producto.</li>
+        </ul>
+
+        <h3>2.4 Tipografía</h3>
+        <ul>
+            <li><strong>Encabezados: Montserrat Bold</strong> — Moderna, legible e impactante.</li>
+            <li><strong>Cuerpo de Texto: Open Sans Regular</strong> — Clara, accesible y cómoda para lectura prolongada.</li>
+            <li><strong>Tipografía Secundaria: Roboto Light</strong> — Complementaria y elegante; usada para detalles, subtítulos o elementos informativos adicionales.</li>
+        </ul>
+
+        <h3>2.5 Público Objetivo</h3>
+        <p>
+            Estudiantes universitarios, personal administrativo, instituciones educativas, centros comerciales y
+            espacios públicos interesados en sostenibilidad.
+        </p>
+
+        <h2>3. Descripción del Producto</h2>
+        <h3>3.1 ¿Qué es EcoClean?</h3>
+        <p>
+            EcoClean es un bote de basura automatizado e inteligente, equipado con sensores de proximidad,
+            sistemas de compactación y conectividad digital. Diseñado para espacios universitarios, permite:
+        </p>
+        <ul>
+            <li>Apertura automática sin contacto físico</li>
+            <li>Detección inteligente del nivel de llenado</li>
+            <li>Alertas digitales al sistema de gestión</li>
+            <li>Separación facilitada de residuos</li>
+            <li>Reducción significativa de volumen mediante compactación</li>
+            <li>Integración con aplicaciones móviles</li>
+        </ul>
+
+        <h3>3.2 Características Principales</h3>
+        <ul>
+            <li><strong>Sensor Ultrasónico HC-SR04:</strong> Detecta proximidad del usuario (20–30 cm)</li>
+            <li><strong>Tapa Automática con Servomotor:</strong> Abre y cierra automáticamente en 3–5 segundos</li>
+            <li><strong>Sistema de Detección de Nivel:</strong> Sensor infrarrojo que indica llenado</li>
+            <li><strong>Compactación Automática:</strong> Reduce residuos hasta 40% (opcional en versión avanzada)</li>
+            <li><strong>Conectividad IoT:</strong> Notificaciones en tiempo real vía app o web</li>
+            <li><strong>Capacidad:</strong> 12–15 litros (ideal para espacios universitarios)</li>
+            <li><strong>Autonomía:</strong> 2–3 meses con baterías recargables tipo AA o USB</li>
+            <li><strong>Materiales:</strong> Plástico resistente ABS, duradero y ecológico</li>
+        </ul>
+
+        <h3>3.3 Beneficios Para Usuarios</h3>
+        <ul>
+            <li>Mayor higiene y reducción de olores.</li>
+            <li>Eficiencia y reducción de costos de limpieza.</li>
+            <li>Accesible y fácil de usar.</li>
+            <li>Sostenibilidad y promoción del reciclaje.</li>
+        </ul>
+
+        <h2>4. Diseño Técnico y Componentes</h2>
+        <h3>4.1 Arquitectura General</h3>
+
+        <div class="card-ecoclean">
+            <h4>ECOCLEAN SMART BIN</h4>
+            <ul>
+                <li><strong>Cuerpo:</strong> Cilindro plástico ABS</li>
+                <li><strong>Altura:</strong> 45 cm</li>
+                <li><strong>Diámetro:</strong> 25 cm</li>
+                <li><strong>Capacidad:</strong> 12–15 litros</li>
+                <li><strong>Peso:</strong> 2.5 kg (vacío)</li>
+            </ul>
+        </div>
+<img src="images/img1.jpeg" alt="Arquitectura de EcoClean" class="img-ecoclean" width="500px" height="500px">
+        <h3>4.2 Componentes Electrónicos Requeridos</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Modelo / Especificación</th>
+                    <th>Función</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Placa Base</td>
+                    <td>Arduino UNO o ESP32</td>
+                    <td>Control y procesamiento de datos</td>
+                </tr>
+                <tr>
+                    <td>Sensor Ultrasónico</td>
+                    <td>HC-SR04</td>
+                    <td>Detección de proximidad</td>
+                </tr>
+                <tr>
+                    <td>Servomotor</td>
+                    <td>SG90 o MG996R</td>
+                    <td>Apertura/cierre de tapa</td>
+                </tr>
+                <tr>
+                    <td>Sensor de Nivel</td>
+                    <td>IR Infrarrojo</td>
+                    <td>Detección de llenado</td>
+                </tr>
+                <tr>
+                    <td>Fuente de Energía</td>
+                    <td>Batería recargable 9V o 4 AA</td>
+                    <td>Alimentación del sistema</td>
+                </tr>
+                <tr>
+                    <td>Módulo WiFi</td>
+                    <td>ESP8266 o WiFi integrado</td>
+                    <td>Conectividad IoT (opcional)</td>
+                </tr>
+                <tr>
+                    <td>LEDs</td>
+                    <td>Indicadores RGB 5mm</td>
+                    <td>Estado del sistema</td>
+                </tr>
+                <tr>
+                    <td>Cables</td>
+                    <td>Puente / Jumpers variados</td>
+                    <td>Conexionado</td>
+                </tr>
+                <tr>
+                    <td>Buzzer</td>
+                    <td>5V-12V</td>
+                    <td>Alertas sonoras (opcional)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>4.3 Esquema de Funcionamiento</h3>
+        <ol>
+            <li><strong>Detección:</strong> El sensor ultrasónico detecta proximidad (0–30 cm).</li>
+            <li><strong>Activación:</strong> Arduino procesa la señal recibida.</li>
+            <li><strong>Apertura:</strong> El servomotor abre la tapa automáticamente (2–3 segundos).</li>
+            <li><strong>Tiempo de Espera:</strong> El sistema espera 5 segundos antes de continuar.</li>
+            <li><strong>Cierre:</strong> El servomotor cierra la tapa automáticamente.</li>
+            <li><strong>Monitoreo:</strong> El sensor de nivel verifica la capacidad del contenedor.</li>
+            <li><strong>Alerta:</strong> Si el contenedor está lleno, se envía una notificación al sistema central.</li>
+        </ol>
+
+        <h3>4.4 Especificaciones de Energía</h3>
+        <ul>
+            <li>Voltaje: 5V–12V</li>
+            <li>Consumo: 500mA</li>
+            <li>Modo reposo: 50mA</li>
+            <li>Autonomía: 60–90 días</li>
+        </ul>
+        <img src="images/img2.jpeg" alt="Arquitectura de EcoClean" class="img-ecoclean" width="500px" height="500px">
+        <h2>5. Estrategia de Precios</h2>
+
+        <h3>5.1 Análisis de Costos</h3>
+
+        <ul>
+            <li><strong>Materiales y Componentes:</strong> 810–1,080 MXN</li>
+            <li><strong>Ensamble y Mano de Obra:</strong> 360–540 MXN</li>
+            <li><strong>Diseño y Desarrollo:</strong> 270 MXN</li>
+            <li><strong>Costo Total Unitario:</strong> 1,440–1,890 MXN</li>
+        </ul>
+
+
+        <h3>5.2 Precios</h3>
+        <table>
+            <tr>
+                <th>Versión</th>
+                <th>Precio</th>
+                <th>Características</th>
+            </tr>
+            <tr>
+                <td>Básico</td>
+                <td>$149.99</td>
+                <td>Sensor + tapa automática</td>
+            </tr>
+            <tr>
+                <td>Pro</td>
+                <td>$249.99</td>
+                <td>Sensor + nivel + WiFi</td>
+            </tr>
+            <tr>
+                <td>Premium</td>
+                <td>$349.99</td>
+                <td>Compactación + App</td>
+            </tr>
+        </table>
+        <h3>5.3 Justificación de Precios</h3>
+
+        <ul>
+            <li>Innovación y tecnología integrada</li>
+            <li>Beneficios operacionales (reducción de costos de limpieza)</li>
+            <li>Valor ambiental (sostenibilidad)</li>
+            <li>Durabilidad y garantía (2 años)</li>
+            <li>Comparación competitiva favorable</li>
+        </ul>
+
+
+        <h2>6. Canales de Distribución</h2>
+        <h3> 6.1 Distribución Física
+        </h3>
+        <ul>
+            <li>Tiendas de electrónica y gadgets</li>
+            <li>Distribuidores de equipos ecológicos</li>
+            <li>Directamente en campus universitarios</li>
+            <li>Ferias tecnológicas y eventos estudiantiles</li>
+
+        </ul>
+        <h3> 6.2 Distribución digital
+        </h3>
+        <ul>
+            <li>Plataforma de comercio electrónico (Amazon, MercadoLibre)</li>
+            <li>Sitio web corporativo con venta directa</li>
+            <li>Redes sociales (Instagram, TikTok, Facebook)</li>
+            <li>Plataformas B2B para instituciones</li>
+        </ul>
+        <h3> 6.3 Distribución digital
+        </h3>
+        <ul>
+            <li>Universidades y centros educativos</li>
+            <li>Empresas de gestión de residuos</li>
+            <li>Proveedores de sistemas inteligentes</li>
+            <li>Organizaciones ambientales</li>
+        </ul>
+        <h2>7. Estrategia de Promoción</h2>
+
+        <h3>7.1 Marketing Digital</h3>
+        <ul>
+            <li>Campaña en redes sociales con contenido educativo sobre sostenibilidad</li>
+            <li>Videos de demostración del producto (funcionamiento y beneficios)</li>
+            <li>Influencers universitarios y ambientalistas</li>
+            <li>Publicidad programada en plataformas dirigidas a jóvenes</li>
+        </ul>
+
+        <h3>7.2 Marketing de Contenidos</h3>
+        <ul>
+            <li>Blog sobre gestión de residuos y tecnología sostenible</li>
+            <li>Infografías sobre impacto ambiental del reciclaje</li>
+            <li>Testimonios de usuarios universitarios</li>
+            <li>Casos de éxito de implementación</li>
+        </ul>
+
+        <h3>7.3 Estrategias de Promoción Inicial</h3>
+        <ul>
+            <li>Descuentos por volumen: 15-20% para instituciones educativas</li>
+            <li>Programa piloto: Primeras 50 unidades a precio especial</li>
+            <li>Garantía extendida: 2 años incluidos</li>
+            <li>Capacitación gratuita: Para usuarios y administradores</li>
+        </ul>
+
+        <h3>7.4 Eventos y Activaciones</h3>
+        <ul>
+            <li>Demostraciones en ferias tecnológicas y ambientales</li>
+            <li>Workshops en universidades sobre gestión sostenible</li>
+            <li>Participación en eventos de emprendimiento estudiantil</li>
+            <li>Sponsoreo de iniciativas ecológicas en campus</li>
+        </ul>
+
+        <h2>8. Plan de Ejecución</h2>
+        <h3>8.1 Fases del Proyecto</h3>
+
+        <h3>Fase 1: Prototipado (Semanas 1-4)</h3>
+        <ul>
+            <li>Ensamble de componentes electrónicos</li>
+            <li>Pruebas de sensores y funcionamiento</li>
+            <li>Ajustes de diseño estructural</li>
+        </ul>
+
+        <h3>Fase 2: Pruebas y Validación (Semanas 5-8)</h3>
+        <ul>
+            <li>Pruebas de funcionamiento en campus piloto</li>
+            <li>Recopilación de feedback de usuarios</li>
+            <li>Mejoras iterativas</li>
+        </ul>
+
+        <h3>Fase 3: Producción (Semanas 9-12)</h3>
+        <ul>
+            <li>Fabricación de primeras unidades</li>
+            <li>Control de calidad</li>
+            <li>Preparación para lanzamiento</li>
+        </ul>
+
+        <h3>Fase 4: Lanzamiento (Semana 13+)</h3>
+        <ul>
+            <li>Campaña de marketing integral</li>
+            <li>Distribución inicial en canales piloto</li>
+            <li>Monitoreo de ventas y satisfacción</li>
+        </ul>
+        <h3>8.2 Indicadores de Éxito</h3>
+
+        <ul>
+            <li>Número de unidades vendidas</li>
+            <li>Satisfacción del cliente (NPS &gt;70)</li>
+            <li>Reducción de residuos en campus piloto</li>
+            <li>Tasa de retención de usuarios</li>
+            <li>Engagement en redes sociales</li>
+        </ul>
+
+<img src="images/img3.jpeg" alt="Arquitectura de EcoClean" class="img-ecoclean" width="500px" height="400px">
+        <h2>9. Conclusión</h2>
+        <p>
+            EcoClean representa una oportunidad significativa para innovar en la gestión de residuos
+            universitarios. Combinando tecnología accesible, diseño sostenible y valor propositivo
+            claro, el producto está posicionado para captar un mercado en crecimiento de
+            instituciones y espacios comprometidos con sostenibilidad ambiental.
+            El eslogan "La limpieza se organiza con inteligencia" encapsula perfectamente la propuesta
+            de valor: automatización, eficiencia y compromiso ambiental en un solo producto.
+            <br><br>
+            Con una estrategia de marketing bien ejecutada y un enfoque en la experiencia
+            universitaria, EcoClean tiene potencial para convertirse en un referente en soluciones
+            ecointeligentes para el sector educativo.
+
+        </p>
+        <h2>10. Referencias Bibliográficas</h2>
+
+
+        <ol>
+            <li>SunFounder. (2025). ESP32 Lección 35: Bote de basura inteligente. Documentación técnica de
+                proyectos
+                IoT.</li>
+            <li>Instructables. (2021). Basurero Inteligente - SIC. Proyecto de prototipado colaborativo.
+            </li>
+            <li>STEAMACADEMY. (2022). Crean un cubo de basura inteligente con Arduino. Guía de
+                implementación
+                educativa.
+            </li>
+            <li>MetaRed. (2024). Smart Campus: Reciclaje con contenedores inteligentes. Iniciativa de
+                sostenibilidad
+                universitaria.</li>
+            <li>Contenedores de Basura. (2025). Gestión Sostenible de Residuos en Campus Universitarios.
+                Análisis de
+                buenas prácticas.</li>
+            <li>UNIFRANZ. (2024). Basureros inteligentes para limpiar el río Rocha. Propuesta de innovación
+                estudiantil.
+            </li>
+        </ol>
+
+    </section>
+
+    <footer>
+        EcoClean © 2025 — Proyecto de Innovación en Gestión Sostenible
+    </footer>
+
+</body>
+
+</html>
